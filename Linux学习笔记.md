@@ -1,0 +1,33 @@
+# Linux学习笔记
+- **ubuntu系统**
+ - 本次安装选择了ubuntu24 ，以双系统的形式安装配置。
+- **使用包管理器**：
+  - 在ubuntu24.04中可使用包管理器（如apt、yum、dnf等）安装软件包。
+  - 例如，使用apt安装Git：`sudo apt install git`
+- **创建文件/目录**：
+  - 创建文件：`touch <filename>`
+  - 创建目录：`mkdir <directory_name>`
+- **复制/移动文件**：
+  - 复制文件：`cp <source_file> <destination_file>`
+  - 移动文件：`mv <source_file> <destination_file>`
+- **删除文件/目录**：
+  - 删除文件：`rm <filename>`
+  - 删除目录（包括其中所有文件）：`rm -r <directory_name>`
+- **修改权限**：
+    - 使用 `chmod` 命令修改文件或目录的权限。
+    - 例如，给文件添加可执行权限：`chmod +x <filename>`
+- **查看权限**：
+    - 使用 `ls -l` 命令查看文件或目录的详细权限信息。
+- **查看磁盘空间**：
+    - 使用 `df` 命令查看文件系统的磁盘空间使用情况。
+- **查看目录大小**：
+    - 使用 `du` 命令查看指定目录的大小。
+-   **挂载/卸载磁盘**：
+    - 使用 `mount` 命令挂载磁盘到指定目录。
+    - 使用 `umount` 命令卸载已挂载的磁盘。
+- **格式化磁盘**：
+    - 使用 `mkfs` 命令对磁盘进行格式化。
+    - 例如，格式化为ext4文件系统：`mkfs.ext4 /dev/sdX`
+- **分区管理**：
+    - 使用 `fdisk` 或 `parted` 命令对磁盘进行分区管理。
+    

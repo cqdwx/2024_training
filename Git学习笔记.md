@@ -1,0 +1,33 @@
+# Git学习笔记
+- 可选择使用Git Bash命令行对仓库进行管理，也可以选择使用 **Github Desktop** 利用图形化界面对相关仓库进行管理。
+- **初始化仓库**：
+  -`git init` 初始化一个新的 Git 仓库。
+- **添加文件**：
+  -`git add <file>` 将文件添加到暂存区。
+  -`git add .` 添加所有文件到暂存区。
+- **提交更改**：
+  -`git commit -m "commit message"` 提交暂存区中的更改到版本库。
+- **查看状态**：
+  -`git status` 查看工作区、暂存区和版本库的状态。
+- **查看历史**：
+  -`git log` 查看提交历史记录。
+- **撤销更改**：
+  -`git checkout -- <file>` 丢弃工作区中文件的更改。
+  -`git reset HEAD <file>` 将文件从暂存区中移除。
+- **创建分支**：
+  -`git branch <branch_name>` 创建一个新的分支。
+- **切换分支**：
+  -`git checkout <branch_name>` 切换到指定分支。
+  -`git switch <branch_name>` 切换到指定分支（Git 2.23+）。
+- **查看分支**：
+  -`git branch` 查看所有分支及当前所在分支。
+- **合并分支**：
+  -`git merge <branch_name>` 将指定分支合并到当前分支。
+- **删除分支**：
+  -`git branch -d <branch_name>` 删除指定分支。
+- **解决冲突**：
+- 在合并分支时，可能会遇到冲突。使用编辑器手动解决冲突后，再次提交。
+- **Git Merge**:
+  -`git merge` 将一个分支的更改合并到当前分支。
+- **Git Rebase**:
+  -`git rebase` 将一系列提交按照原有顺序依次应用到另一个分支上。

@@ -1,0 +1,3 @@
+In Python you can define variables and assign values to them.
+In Python you can use loops like for and while to iterate over data.
+In Python you can create functions to encapsulate reusable blocks of code.
