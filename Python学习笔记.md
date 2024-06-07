@@ -55,5 +55,5 @@ with open('file.txt', 'r') as file:
     # process data
 ```
 - **常用库**
-- Python有大量的标准库，包括用于各种目的的模块，如os、sys、math等。
-- 第三方库如NumPy、Pandas、Matplotlib等提供了丰富的功能。
+  - Python有大量的标准库，包括用于各种目的的模块，如os、sys、math等。
+  - 第三方库如NumPy、Pandas、Matplotlib等提供了丰富的功能。
