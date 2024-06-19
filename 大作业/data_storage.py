@@ -2,6 +2,7 @@ import json
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Text
 
 # 数据库连接信息
 db_user = 'cq'
@@ -16,18 +17,16 @@ engine = create_engine(db_url, echo=True)
 
 # 创建基类
 Base = declarative_base()
-
-# 定义数据表模型
 class DataInfo(Base):
     __tablename__ = 'data_info'
     id = Column(Integer, primary_key=True)
-    image_path = Column(String(255))
-    pointcloud_path = Column(String(255))
-    label_lidar_std_path = Column(String(255))
-    calib_lidar_to_camera_path = Column(String(255))
-    calib_camera_intrinsic_path = Column(String(255))
+    image_path = Column(String(255))  # 为字段指定长度
+    pointcloud_path = Column(String(255))  # 为字段指定长度
+    label_lidar_std_content = Column(Text)
+    calib_lidar_to_camera_content = Column(Text)
+    calib_camera_intrinsic_content = Column(Text)
 
-
+# 在数据库中创建表
 Base.metadata.create_all(engine)
 
 # 读取data_info.json文件
@@ -39,12 +38,20 @@ Session = sessionmaker(bind=engine)
 session = Session()
 try:
     for item in data:
+        # 读取相应路径中的JSON文件内容
+        with open('./Data_example/' + item['label_lidar_std_path'], 'r', encoding='utf-8') as label_file:
+            label_content = label_file.read()
+        with open('./Data_example/' + item['calib_lidar_to_camera_path'], 'r', encoding='utf-8') as calib_lidar_file:
+            calib_lidar_content = calib_lidar_file.read()
+        with open('./Data_example/' + item['calib_camera_intrinsic_path'], 'r', encoding='utf-8') as calib_camera_file:
+            calib_camera_content = calib_camera_file.read()
+
         new_data = DataInfo(
             image_path=item['image_path'],
             pointcloud_path=item['pointcloud_path'],
-            label_lidar_std_path=item['label_lidar_std_path'],
-            calib_lidar_to_camera_path=item['calib_lidar_to_camera_path'],
-            calib_camera_intrinsic_path=item['calib_camera_intrinsic_path']
+            label_lidar_std_content=label_content,
+            calib_lidar_to_camera_content=calib_lidar_content,
+            calib_camera_intrinsic_content=calib_camera_content
         )
         session.add(new_data)
 
